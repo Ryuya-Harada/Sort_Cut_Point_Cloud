@@ -1,0 +1,12 @@
+/.vscode/
+/build/
+/bin/
+Debug
+Release
+CMakeFiles/
+CMakeScripts
+CMakeCache.txt
+Makefile
+sort_ply
+/*.cmake
+/*.ply
