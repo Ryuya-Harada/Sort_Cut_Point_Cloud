@@ -1,22 +1,33 @@
 #pragma once
-#ifndef _CONFIG_H
-#define _CONFIG_H
+#ifndef _SCPC_CONFIG_H
+#define _SCPC_CONFIG_H
 
 #include <string>
+#include <vector>
 
-namespace sort_ply{
+namespace SCPC {
     class Config
     {
     public:
-        std::string file{"sorted.ply"};
-        std::string attr{"none"};
-        Config(const int& argc, const char** argv) noexcept {
+        std::vector<std::string> files;
+        bool cut{false};
+        bool sort{false};
+        Config(const int& argc, char** argv) noexcept {
             for (int i = 0; i < argc; i++)
             {
                 const std::string str = std::string(argv[i]);
-                if ( str.substr(0, 2) == "-i" ) file = str.substr(str.find("=") + 1);
-                else if ( str.substr(0, 2) == "-a" ) attr = str.substr(str.find("=") + 1);
+                if ( str == "-i" && i < argc - 1 ) files.push_back(std::string(argv[i + 1]));
+                else if ( str == "-c" ) cut = true;
+                else if ( str == "-s" ) sort = true;
+                else if ( str == "-h" || str == "--help" || str == "-?" ) Help();
             }
+        };
+        void Help(){
+            printf("\n~~~~~ Help ~~~~~\n\n");
+            printf("    -i  : path/to/input/file\n");
+            printf("    -c  : cut attribute\n");
+            printf("    -s  : sort coordinate and attribute\n");
+            printf("    -h, --help, -?  : help\n\n");
         };
     };
     
