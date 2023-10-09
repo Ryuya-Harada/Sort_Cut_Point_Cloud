@@ -1,9 +1,11 @@
 
 # Point Cloud Sort and Cut Attribute
+This program is deletes attribute or (and) sort point clouds!
+
 ## Requirements
 
 - g++ (tested 9.4)
-- CMake 3.2 (tested 3.27)
+- CMake 3.2 (tested 3.27.20230910-gd291cc1)
 - Boost (tested 1.82.0)
 
 ## Build
