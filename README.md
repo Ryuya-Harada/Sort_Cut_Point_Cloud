@@ -1,6 +1,6 @@
 
 # Point Cloud Sort and Cut Attribute
-This program is deletes attribute or (and) sort point clouds!
+This program is deletes attribute or (and) sort point clouds based on geometry!
 
 ## Requirements
 
